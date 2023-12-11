@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/svg" href="img/logo.svg">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="@AppConfig.PublicBaseUrl.CombineWith("feed.xml")" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <title>@ViewData["Title"]</title>
     <base href="@(RazorSsg.GetBaseHref() ?? "/")" />
     <script>
@@ -19,8 +20,9 @@
         cls.remove('dark')
     </script>
     <link rel="stylesheet" href="css/app.css">
-
+    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
     <script async src="https://ga.jspm.io/npm:es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     @Html.ImportMap(new() {
         ["app.mjs"]              = ("./mjs/app.mjs",                     "./mjs/app.mjs"),
         ["vue"]                  = ("./lib/mjs/vue.mjs",                 "./lib/mjs/vue.min.mjs"),
