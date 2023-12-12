@@ -1,0 +1,58 @@
+﻿@attribute [RenderStatic]
+@inject MarkdownBlog Blog
+@{
+
+    var posts = Blog.GetPosts();
+    var primaryPost = posts.FirstOrDefault();
+    var threePosts = posts.Take(3).ToList();
+    if (primaryPost != null)
+    {
+        <div class="flex flex-col" style="margin-left:50px;">
+            <span class="text-2xl text-orange-500 font-bold">Blog</span>
+            <span>Description</span>
+        </div>
+        <div id="default-carousel" class="relative w-full mt-10 p-20" style="background-color : #0F0F0F;" data-carousel="slide">
+            <div class="relative overflow-hidden h-72">
+                @{
+                    foreach (var post in threePosts)
+                    {
+                        <div class="hidden duration-700 ease-in my-5" style="padding-top:10px;" data-carousel-item>
+                            <div class="grid grid-cols-2 border-gray-600">
+                                <div class="mb:col-span-2 py-3 border-l border-gray-700" style="margin-left: 30px;padding-left: 40px; padding-right: 70px;">
+                                    <div class="sm:mx-0">
+                                        <a aria-label="@post.Title" href="@Blog.GetPostLink(post)">
+                                            <img src="@post.Image" alt="Cover Image for @post.Title" class="shadow-sm border border-gray-700 rounded-lg hover:shadow-2xl  transition-shadow duration-200">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="mb:col-span-2 py-3 h-full flex border-r border-gray-700 flex-col justify-between" style="margin-right: 30px;padding-left: 40px; padding-right: 70px;">
+                                    <div class="flex flex-grow justify-between text-sm text-gray-500">
+                                        <time datetime="@Blog.GetDateTimestamp(@post.Date)">@Blog.GetDateLabel(@post.Date)</time>
+                                        <span aria-hidden="true">&middot;</span>
+                                        <span>@Blog.MinutesToRead(@post.WordCount) min read</span>
+                                    </div>
+                                    <div class="mb-2">
+                                        <p class="text-white">
+                                            @post.Summary
+                                            @post.Summary
+                                            @post.Summary
+                                        </p>
+                                        <a class="flex mt-4 text-sm text-orange-500 align-baseline" href="about#">
+                                            <span class="">Read the article</span>
+                                            <svg class="w-4 h-4 text-orange-500 mt-1 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+
+
+    }
+}
