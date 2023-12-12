@@ -5,6 +5,7 @@ module.exports = {
     theme: {
         colors: {
             'lightBlack':'#202020'
-        }
+        },
+
     }
 }

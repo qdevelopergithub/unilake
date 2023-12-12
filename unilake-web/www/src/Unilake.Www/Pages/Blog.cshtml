@@ -5,32 +5,32 @@
     ViewData["Title"] = "Unilake.Www Blog";
 }
 
-<div class="container  mx-auto px-5 mt-24 mb-24">
+<div class="md:container mx-auto" style="background-color:#121212;padding-top:80px;">
     @{
         var posts = Blog.GetPosts();
         var primaryPost = posts.FirstOrDefault();
         var threePosts = posts.Take(3).ToList();
         if (primaryPost != null)
         {
-            <div class="flex flex-col my-10">
+            <div class="flex flex-col" style="margin-left:50px;">
                 <span class="text-2xl text-orange-500 font-bold">Blog</span>
                 <span>Description</span>
             </div>
-            <div id="default-carousel" class="relative w-full mt-10 p-20 bg-gray-900" data-carousel="slide">
-                <div class="relative overflow-hidden h-80">
+            <div id="default-carousel" class="relative w-full mt-10 p-20" style="background-color : #0F0F0F;" data-carousel="slide">
+                <div class="relative overflow-hidden h-72">
                     @{
                         foreach (var post in threePosts)
                         {
-                            <div class="hidden duration-700 ease-in my-5 " data-carousel-item>
-                                <div class="grid grid-cols-2 border-gray-600 ps-100">
-                                    <div class="mb:col-span-2 p-3">
+                            <div class="hidden duration-700 ease-in my-5" style="padding-top:10px;" data-carousel-item>
+                                <div class="grid grid-cols-2 border-gray-600">
+                                    <div class="mb:col-span-2 py-3 border-l border-gray-700" style="margin-left: 30px;padding-left: 40px; padding-right: 70px;">
                                         <div class="sm:mx-0">
                                             <a aria-label="@post.Title" href="@Blog.GetPostLink(post)">
                                                 <img src="@post.Image" alt="Cover Image for @post.Title" class="shadow-sm border border-gray-700 rounded-lg hover:shadow-2xl  transition-shadow duration-200">
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="mb:col-span-2 p-3 h-full flex flex-col justify-between">
+                                    <div class="mb:col-span-2 py-3 h-full flex border-r border-gray-700 flex-col justify-between" style="margin-right: 30px;padding-left: 40px; padding-right: 70px;">
                                         <div class="flex flex-grow justify-between text-sm text-gray-500">
                                             <time datetime="@Blog.GetDateTimestamp(@post.Date)">@Blog.GetDateLabel(@post.Date)</time>
                                             <span aria-hidden="true">&middot;</span>
@@ -60,56 +60,18 @@
 
 
         }
-        //if (primaryPost != null)
-        //{
-        //    var authorHref = Blog.GetAuthorLink(primaryPost.Author);
-        //    <section>
-        //        <div class="mb-8 md:mb-16">
-        //            <div class="sm:mx-0">
-        //                <a aria-label="@primaryPost.Title" href="@Blog.GetPostLink(primaryPost)">
-        //                    <img src="@primaryPost.Image" alt="Cover Image for @primaryPost.Title" class="shadow-sm hover:shadow-2xl transition-shadow duration-200">
-        //                </a>
-        //            </div>
-        //        </div>
-        //        <div class="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
-        //            <div>
-        //                <h3 class="mb-4 text-4xl lg:text-6xl leading-tight">
-        //                    <a class="hover:underline" href="@Blog.GetPostLink(primaryPost)">@primaryPost.Title</a>
-        //                </h3>
-        //                <div class="mb-4 md:mb-0 text-lg">
-        //                    <time datetime="@Blog.GetDateTimestamp(primaryPost.Date)">@Blog.GetDateLabel(primaryPost.Date)</time>
-        //                </div>
-        //            </div>
-        //            <div>
-        //                <p class="text-lg leading-relaxed mb-4">@primaryPost.Summary</p>
-        //                @if (authorHref != null)
-        //                {
-        //                    <a class="flex items-center text-xl font-bold" href="@authorHref">
-        //                        <img src="@Blog.GetAuthorProfileUrl(primaryPost.Author)" class="w-12 h-12 rounded-full mr-4" alt="Author">
-        //                        <span>@primaryPost.Author</span>
-        //                    </a>
-        //                }
-        //                else
-        //                {
-        //                    <span class="flex items-center text-xl font-bold">
-        //                        <img src="@Blog.GetAuthorProfileUrl(primaryPost.Author)" class="w-12 h-12 rounded-full mr-4" alt="Author">
-        //                        <span>@primaryPost.Author</span>
-        //                    </span>
-        //                }
-        //            </div>
-        //        </div>
-        //    </section>
-        //}
-
         var gridPosts = posts.Skip(1).Take(6).ToList();
         if (gridPosts.Count > 0)
         {
+            var index = 0;
             <section>
-                <div class="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
+                <div class="mx-auto mt-12 grid gap-3 lg:max-w-none lg:grid-cols-3  px-5">
                     @foreach (var post in gridPosts)
                     {
+                        index++;
                         var authorHref = Blog.GetAuthorLink(post.Author);
-                        <div class="flex flex-col  shadow-lg">
+                        var applyBorder = index != 3 && index != 6 ? "border-r border-gray-700" : "";
+                        <div class="flex flex-col @applyBorder mt-5" style="padding-right:50px;padding-left:50px">
                             <div class="flex-shrink-0">
                                 <a href="@Blog.GetPostLink(post)">
                                     <img class="h-48 w-full rounded-lg border border-gray-700 object-cover" src="@Blog.GetSplashImage(post)" alt="">
@@ -144,35 +106,33 @@
         var remainingPosts = posts.Skip(7).Take(1).ToList();
         var remainingPost = remainingPosts.FirstOrDefault();
         <section class="mt-24 flex justify-center">
-            <div class="flex max-w-screen-lg">
-                <div class="duration-700 ease-in my-5 " data-carousel-item>
-                    <div class="grid grid-cols-2 border-gray-600 ps-100">
-                        <div class="mb:col-span-2 p-3">
-                            <div class="sm:mx-0">
-                                <a aria-label="@remainingPost.Title" href="@Blog.GetPostLink(remainingPost)">
-                                    <img src="@remainingPost.Image" alt="Cover Image for @remainingPost.Title" class="shadow-sm border rounded-lg hover:shadow-2xl border-gray-700 transition-shadow duration-200">
-                                </a>
-                            </div>
+            <div class=" duration-700 ease-in my-5 " data-carousel-item>
+                <div class="grid grid-cols-2 border-gray-600">
+                    <div class="mb:col-span-2 p-3" style="padding-left: 70px; padding-right: 70px;">
+                        <div class="sm:mx-0">
+                            <a aria-label="@remainingPost.Title" href="@Blog.GetPostLink(remainingPost)">
+                                <img src="@remainingPost.Image" alt="Cover Image for @remainingPost.Title" class="shadow-sm border rounded-lg hover:shadow-2xl border-gray-700 transition-shadow duration-200">
+                            </a>
                         </div>
-                        <div class="mb:col-span-2 p-3 h-full flex flex-col justify-between">
-                            <div class="flex flex-grow justify-between text-sm text-gray-500">
-                                <time datetime="@Blog.GetDateTimestamp(@remainingPost.Date)">@Blog.GetDateLabel(@remainingPost.Date)</time>
-                                <span aria-hidden="true">&middot;</span>
-                                <span>@Blog.MinutesToRead(@remainingPost.WordCount) min read</span>
-                            </div>
-                            <div class="mb-2">
-                                <p class="text-white">
-                                    @remainingPost.Summary
-                                    @remainingPost.Summary
-                                    @remainingPost.Summary
-                                </p>
-                                <a class="flex mt-4 text-sm text-orange-500 align-baseline" href="about#">
-                                    <span class="">Read the article</span>
-                                    <svg class="w-4 h-4 text-orange-500 mt-1 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                    </svg>
-                                </a>
-                            </div>
+                    </div>
+                    <div class="mb:col-span-2 p-3 h-full flex flex-col justify-between" style="padding-left: 70px; padding-right: 70px;">
+                        <div class="flex flex-grow justify-between text-sm text-gray-500">
+                            <time datetime="@Blog.GetDateTimestamp(@remainingPost.Date)">@Blog.GetDateLabel(@remainingPost.Date)</time>
+                            <span aria-hidden="true">&middot;</span>
+                            <span>@Blog.MinutesToRead(@remainingPost.WordCount) min read</span>
+                        </div>
+                        <div class="mb-2">
+                            <p class="text-white">
+                                @remainingPost.Summary
+                                @remainingPost.Summary
+                                @remainingPost.Summary
+                            </p>
+                            <a class="flex mt-4 text-sm text-orange-500 align-baseline" href="about#">
+                                <span class="">Read the article</span>
+                                <svg class="w-4 h-4 text-orange-500 mt-1 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>

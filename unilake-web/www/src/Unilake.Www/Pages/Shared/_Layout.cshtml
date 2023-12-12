@@ -8,6 +8,7 @@
     <link rel="icon" type="image/svg" href="img/logo.svg">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="@AppConfig.PublicBaseUrl.CombineWith("feed.xml")" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
     <title>@ViewData["Title"]</title>
     <base href="@(RazorSsg.GetBaseHref() ?? "/")" />
     <script>
@@ -35,7 +36,7 @@
 @await Html.PartialAsync("Header")
 
 <div class="min-h-screen">
-    <main role="main" class="pt-14 pb-3">
+    <main role="main" class="pt-14">
         @RenderBody()
     </main>
 </div>
