@@ -7,25 +7,25 @@
     var threePosts = posts.Take(3).ToList();
     if (primaryPost != null)
     {
-        <div class="flex flex-col" style="margin-left:50px;">
+        <div class="flex flex-col sm:ml-14  ml-3">
             <span class="text-2xl text-orange-500 font-bold">Blog</span>
             <span>Description</span>
         </div>
-        <div id="default-carousel" class="relative w-full mt-10 p-20" style="background-color : #0F0F0F;" data-carousel="slide">
-            <div class="relative overflow-hidden h-72">
+        <div id="default-carousel" class="relative mt-10 p-2 hidden md:block sm:block" style="background-color : #0F0F0F;" data-carousel="slide">
+            <div class="relative overflow-hidden h-96 2xl:h-[658px]">
                 @{
                     foreach (var post in threePosts)
                     {
                         <div class="hidden duration-700 ease-in my-5" style="padding-top:10px;" data-carousel-item>
                             <div class="grid grid-cols-2 border-gray-600">
-                                <div class="mb:col-span-2 py-3 border-l border-gray-700" style="margin-left: 30px;padding-left: 40px; padding-right: 70px;">
+                                <div class="mb:col-span-2 py-3 border-l border-gray-700 ml-6 pl-8 pr-8">
                                     <div class="sm:mx-0">
                                         <a aria-label="@post.Title" href="@Blog.GetPostLink(post)">
                                             <img src="@post.Image" alt="Cover Image for @post.Title" class="shadow-sm border border-gray-700 rounded-lg hover:shadow-2xl  transition-shadow duration-200">
                                         </a>
                                     </div>
                                 </div>
-                                <div class="mb:col-span-2 py-3 h-full flex border-r border-gray-700 flex-col justify-between" style="margin-right: 30px;padding-left: 40px; padding-right: 70px;">
+                                <div class="mb:col-span-2 py-3 h-full flex border-r border-gray-700 flex-col justify-between mr-8 pl-8 pr-8">
                                     <div class="flex flex-grow justify-between text-sm text-gray-500">
                                         <time datetime="@Blog.GetDateTimestamp(@post.Date)">@Blog.GetDateLabel(@post.Date)</time>
                                         <span aria-hidden="true">&middot;</span>

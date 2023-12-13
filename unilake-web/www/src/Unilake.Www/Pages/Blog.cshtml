@@ -5,7 +5,7 @@
     ViewData["Title"] = "Unilake.Www Blog";
 }
 
-<div class="md:container mx-auto" style="background-color:#121212;padding-top:80px;">
+<div class="mx-auto md:pt-32 pt-[2rem] pb-32" style="background-color:#121212;">
     @{
         var posts = Blog.GetPosts();
 
@@ -16,16 +16,16 @@
         {
             var index = 0;
             <section>
-                <div class="mx-auto mt-12 grid gap-3 lg:max-w-none lg:grid-cols-3  px-5">
+                <div class="mx-auto mt-12 grid gap-0 lg:max-w-none lg:grid-cols-3  md:px-5">
                     @foreach (var post in gridPosts)
                     {
                         index++;
                         var authorHref = Blog.GetAuthorLink(post.Author);
                         var applyBorder = index != 3 && index != 6 ? "border-r border-gray-700" : "";
-                        <div class="flex flex-col @applyBorder mt-5" style="padding-right:50px;padding-left:50px">
+                        <div class="flex flex-col @applyBorder mt-5 md:pl-10 md:pr-10 pr-3 pl-3" >
                             <div class="flex-shrink-0">
                                 <a href="@Blog.GetPostLink(post)">
-                                    <img class="h-48 w-full rounded-lg border border-gray-700 object-cover" src="@Blog.GetSplashImage(post)" alt="">
+                                    <img class="w-full rounded-lg border border-gray-700 object-cover" src="@Blog.GetSplashImage(post)" alt="">
                                 </a>
                             </div>
                             <div class="mb:col-span-2 p-3 h-full flex flex-col justify-between">
@@ -56,17 +56,19 @@
 
         var remainingPosts = posts.Skip(7).Take(1).ToList();
         var remainingPost = remainingPosts.FirstOrDefault();
-        <section class="mt-24 flex justify-center">
-            <div class=" duration-700 ease-in my-5 " data-carousel-item>
+        if (remainingPost != null)
+        {
+
+            <section class="mt-24 flex justify-center hidden md:block">
                 <div class="grid grid-cols-2 border-gray-600">
-                    <div class="mb:col-span-2 p-3" style="padding-left: 70px; padding-right: 70px;">
+                    <div class="mb:col-span-2 pl-[60px] pr-[60px]">
                         <div class="sm:mx-0">
                             <a aria-label="@remainingPost.Title" href="@Blog.GetPostLink(remainingPost)">
                                 <img src="@remainingPost.Image" alt="Cover Image for @remainingPost.Title" class="shadow-sm border rounded-lg hover:shadow-2xl border-gray-700 transition-shadow duration-200">
                             </a>
                         </div>
                     </div>
-                    <div class="mb:col-span-2 p-3 h-full flex flex-col justify-between" style="padding-left: 70px; padding-right: 70px;">
+                    <div class="mb:col-span-2 h-full flex flex-col justify-between pl-[60px] pr-[60px]">
                         <div class="flex flex-grow justify-between text-sm text-gray-500">
                             <time datetime="@Blog.GetDateTimestamp(@remainingPost.Date)">@Blog.GetDateLabel(@remainingPost.Date)</time>
                             <span aria-hidden="true">&middot;</span>
@@ -87,7 +89,50 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
+        }
+
+        if (gridPosts.Count > 0)
+        {
+            var index = 0;
+            <section>
+                <div class="mx-auto mt-12 grid gap-0 lg:max-w-none lg:grid-cols-3  md:px-5">
+                    @foreach (var post in gridPosts)
+                    {
+                        index++;
+                        var authorHref = Blog.GetAuthorLink(post.Author);
+                        var applyBorder = index != 3 && index != 6 ? "border-r border-gray-700" : "";
+                        <div class="flex flex-col @applyBorder mt-5 md:pl-10 md:pr-10 pr-3 pl-3">
+                            <div class="flex-shrink-0">
+                                <a href="@Blog.GetPostLink(post)">
+                                    <img class="w-full rounded-lg border border-gray-700 object-cover" src="@Blog.GetSplashImage(post)" alt="">
+                                </a>
+                            </div>
+                            <div class="mb:col-span-2 p-3 h-full flex flex-col justify-between">
+                                <div class="flex flex-grow justify-between text-sm text-gray-500">
+                                    <time datetime="@Blog.GetDateTimestamp(@post.Date)">@Blog.GetDateLabel(@post.Date)</time>
+                                    <span aria-hidden="true">&middot;</span>
+                                    <span>@Blog.MinutesToRead(@post.WordCount) min read</span>
+                                </div>
+                                <div class="mb-2">
+                                    <p class="text-white">
+                                        @post.Summary
+                                        @post.Summary
+                                        @post.Summary
+                                    </p>
+                                    <a class="flex mt-4 text-sm text-orange-500 align-baseline" href="about#">
+                                        <span class="">Read the article</span>
+                                        <svg class="w-4 h-4 text-orange-500 mt-1 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </section>
+
+        }
     }
 </div>
