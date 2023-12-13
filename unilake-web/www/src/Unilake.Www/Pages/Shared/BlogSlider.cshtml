@@ -7,10 +7,7 @@
     var threePosts = posts.Take(3).ToList();
     if (primaryPost != null)
     {
-        <div class="flex flex-col sm:ml-14  ml-3">
-            <span class="text-2xl text-orange-500 font-bold">Blog</span>
-            <span>Description</span>
-        </div>
+        
         <div id="default-carousel" class="relative mt-10 p-2 hidden md:block sm:block" style="background-color : #0F0F0F;" data-carousel="slide">
             <div class="relative overflow-hidden h-96 2xl:h-[658px]">
                 @{
@@ -43,6 +40,11 @@
                                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                                             </svg>
                                         </a>
+                                        <ul class="flex flex-wrap gap-2 mt-4">
+                                            <li class="border border-[#6F6E73] text-white px-3 py-[1.5px] rounded-full">Tag 1</li>
+                                            <li class="border border-[#6F6E73] text-white px-3 py-[1.5px] rounded-full">Tag 2</li>
+                                            <li class="border border-[#6F6E73] text-white px-3 py-[1.5px] rounded-full">Tag 3</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
