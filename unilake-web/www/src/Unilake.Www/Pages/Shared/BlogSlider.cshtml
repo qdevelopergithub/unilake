@@ -1,0 +1,123 @@
+﻿@attribute [RenderStatic]
+@inject MarkdownBlog Blog
+@{
+
+
+    <div id="default-carousel" class="relative bg-backgroundTertiary mx-[-160px]" data-carousel="static">
+        <div class="relative overflow-hidden h-[400px] py-[32px] px-[100px]">
+
+            @{
+
+                //item one
+                <div class="hidden duration-700 ease-in" data-carousel-item>
+                    <div class="grid grid-cols-2 gap-[100px] px-[100px] py-[32px]">
+                        <div class="mb:col-span-2">
+                            <div class="sm:mx-0">
+                                <a href="#">
+                                    <img src="./img/slider-img.png" alt="Cover Image for" class="shadow-sm border border-borderSecondary rounded-L hover:shadow-2xl">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mb:col-span-2 py-[16px] pl-[0px] pr-[16px] grid grid-cols-1 gap-[32px]">
+                            <div class="flex flex-grow justify-between">
+                                <span class="text-Medium text-textTertiary">31 Dec 2023</span>
+                                <span class="text-Medium text-textTertiary">5 min read</span>
+                            </div>
+                            <p class="text-H4 text-textPrimary">
+                                Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
+                            </p>
+                            <a class="" href="about#">
+                                <div class="flex items-center gap-[8px]">
+                                    <span class="text-Medium text-brandPrimary">Read the article</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
+                                        <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
+                                    </svg>
+                                </div>
+                            </a>
+                            <ul class="flex flex-wrap gap-[16px]">
+                                <li class="border border-borderPrimary items-center text-Medium text-textPrimary px-M py-XS rounded-L">Tag 1</li>
+                                <li class="border border-borderPrimary items-center text-Medium text-textPrimary px-M py-XS rounded-L">Tag 2</li>
+                                <li class="border border-borderPrimary items-center text-Medium text-textPrimary px-M py-XS rounded-L">Tag 3</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                //item two
+                <div class="hidden duration-700 ease-in" data-carousel-item>
+                    <div class="grid grid-cols-2 gap-[100px] px-[100px] py-[32px]">
+                        <div class="mb:col-span-2">
+                            <div class="sm:mx-0">
+                                <a href="#">
+                                    <img src="./img/slider-img.png" alt="Cover Image for" class="shadow-sm border border-borderSecondary rounded-L hover:shadow-2xl">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mb:col-span-2 py-[16px] pl-[0px] pr-[16px] grid grid-cols-1 gap-[32px]">
+                            <div class="flex flex-grow justify-between">
+                                <span class="text-Medium text-textTertiary">31 Dec 2023</span>
+                                <span class="text-Medium text-textTertiary">5 min read</span>
+                            </div>
+                            <p class="text-H4 text-textPrimary">
+                                Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
+                            </p>
+                            <a class="" href="about#">
+                                <div class="flex items-center gap-[8px]">
+                                    <span class="text-Medium text-brandPrimary">Read the article</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
+                                        <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
+                                    </svg>
+                                </div>
+                            </a>
+                            <ul class="flex flex-wrap gap-[16px]">
+                                <li class="border border-borderPrimary items-center text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
+                                <li class="border border-borderPrimary items-center text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
+                                <li class="border border-borderPrimary items-center text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            //item three
+                <div class="hidden duration-700 ease-in" data-carousel-item>
+                    <div class="grid grid-cols-2 gap-[100px] px-[100px] py-[32px]">
+                        <div class="mb:col-span-2">
+                            <div class="sm:mx-0">
+                                <a href="#">
+                                    <img src="./img/slider-img.png" alt="Cover Image for" class="shadow-sm border border-borderSecondary rounded-L hover:shadow-2xl">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mb:col-span-2 py-[16px] pl-[0px] pr-[16px] grid grid-cols-1 gap-[32px]">
+                            <div class="flex flex-grow justify-between">
+                                <span class="text-Medium text-textTertiary">31 Dec 2023</span>
+                                <span class="text-Medium text-textTertiary">5 min read</span>
+                            </div>
+                            <p class="text-H4 text-textPrimary">
+                                Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
+                            </p>
+                            <a class="" href="about#">
+                                <div class="flex items-center gap-[8px]">
+                                    <span class="text-Medium text-brandPrimary">Read the article</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
+                                        <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
+                                    </svg>
+                                </div>
+                            </a>
+                            <ul class="flex flex-wrap gap-[16px]">
+                                <li class="border border-borderPrimary items-center text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
+                                <li class="border border-borderPrimary items-center text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
+                                <li class="border border-borderPrimary items-center text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+
+        </div>
+    </div>
+
+
+}

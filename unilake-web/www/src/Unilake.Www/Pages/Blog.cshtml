@@ -5,176 +5,486 @@
     ViewData["Title"] = "Unilake.Www Blog";
 }
 
-<div class="container mx-auto px-5 mt-24 mb-24">
-@{
-    var posts = Blog.GetPosts();
-    var primaryPost = posts.FirstOrDefault();
-    if (primaryPost != null)
-    {
-        var authorHref = Blog.GetAuthorLink(primaryPost.Author);
-        <section>
-            <div class="mb-8 md:mb-16">
-                <div class="sm:mx-0">
-                    <a aria-label="@primaryPost.Title" href="@Blog.GetPostLink(primaryPost)">
-                        <img src="@primaryPost.Image" alt="Cover Image for @primaryPost.Title" class="shadow-sm hover:shadow-2xl transition-shadow duration-200">
-                    </a>
-                </div>
-            </div>
-            <div class="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
-                <div>
-                    <h3 class="mb-4 text-4xl lg:text-6xl leading-tight">
-                        <a class="hover:underline" href="@Blog.GetPostLink(primaryPost)">@primaryPost.Title</a>
-                    </h3>
-                    <div class="mb-4 md:mb-0 text-lg">
-                        <time datetime="@Blog.GetDateTimestamp(primaryPost.Date)">@Blog.GetDateLabel(primaryPost.Date)</time>
-                    </div>
-                </div>
-                <div>
-                    <p class="text-lg leading-relaxed mb-4">@primaryPost.Summary</p>
-                    @if (authorHref != null)
-                    {
-                        <a class="flex items-center text-xl font-bold" href="@authorHref">
-                            <img src="@Blog.GetAuthorProfileUrl(primaryPost.Author)" class="w-12 h-12 rounded-full mr-4" alt="Author">
-                            <span>@primaryPost.Author</span>
-                        </a>
-                    }
-                    else
-                    {
-                        <span class="flex items-center text-xl font-bold">
-                            <img src="@Blog.GetAuthorProfileUrl(primaryPost.Author)" class="w-12 h-12 rounded-full mr-4" alt="Author">
-                            <span>@primaryPost.Author</span>
-                        </span>
-                    }
-                </div>
-            </div>
-        </section>
-    }
+<div class="px-[160px] py-[240px] bg-backgroundSecondary mx-auto grid grid-cols-1 gap-[100px]">
+    @{
 
-    var gridPosts = posts.Skip(1).Take(6).ToList();
-    if (gridPosts.Count > 0)
-    {
+        <div class="flex flex-col">
+            <span class="text-H3 text-brandPrimary">Blog</span>
+            <span class="text-H3 text-textSecondary">Description</span>
+        </div>
+
+        <div class="grid grid-cols-1 gap-[16px]">
+            <div class="relative w-full">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-[12px]">
+                    <svg class="h-[17.49px] w-[17.49px] text-textSecondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </span>
+
+                <input type="text" placeholder="Search" class="placeholder:text-Medium placeholder:text-secondary py-[12px] px-[36px] w-full h-[48px] rounded-L bg-transparent border-borderPrimary border">
+            </div>
+            <ul class="flex flex-wrap gap-[16px] h-[48px]">
+                <li class="text-Medium border border-borderPrimary text-textPrimary px-[24px] py-[12px] rounded-L h-[43px]">All</li>
+                <li class="text-Medium border border-borderPrimary text-textPrimary px-[24px] py-[12px] rounded-L h-[43px]">Auth</li>
+                <li class="text-Medium border border-borderPrimary text-textPrimary px-[24px] py-[12px] rounded-L h-[43px]">Catching / Offline-First</li>
+                <li class="text-Medium border border-borderPrimary text-textPrimary px-[24px] py-[12px] rounded-L h-[43px]">Data Platform</li>
+                <li class="text-Medium border border-borderPrimary text-textPrimary px-[24px] py-[12px] rounded-L h-[43px]">DevTools</li>
+                <li class="text-Medium border border-borderPrimary text-textPrimary px-[24px] py-[12px] rounded-L h-[43px]">Forreign Data Wrapper</li>
+                <li class="text-Medium border border-borderPrimary text-textPrimary px-[24px] py-[12px] rounded-L h-[43px]">Low-Code</li>
+                <li class="text-Medium border border-borderPrimary text-textPrimary px-[24px] py-[12px] rounded-L h-[43px]">Messaging</li>
+            </ul>
+        </div>
+
+        @await Html.PartialAsync("BlogSlider")
+
+            //Blog cards
         <section>
-            <h2 class="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">More from the blog</h2>
-            <div class="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
-                @foreach (var post in gridPosts)
-                {
-                    var authorHref = Blog.GetAuthorLink(post.Author);
-                    <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
-                        <div class="flex-shrink-0">
-                            <a href="@Blog.GetPostLink(post)">
-                                <img class="h-48 w-full object-cover" src="@Blog.GetSplashImage(post)" alt="">
-                            </a>
-                        </div>
-                        <div class="flex flex-1 flex-col justify-between bg-white dark:bg-black p-6">
-                            <div class="flex-1">
-                                <p class="text-sm font-medium text-indigo-600 dark:text-indigo-300">
-                                    Article
-                                </p>
-                                <a href="@Blog.GetPostLink(post)" class="mt-2 block">
-                                    <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">@post.Title</p>
-                                    <p class="mt-3 text-base text-gray-500">@post.Summary</p>
-                                </a>
-                            </div>
-                            <div class="mt-6 flex items-center">
-                                <div class="flex-shrink-0">
-                                    <span>
-                                        <span class="sr-only">@post.Author</span>
-                                        <img class="h-10 w-10 rounded-full" src="@Blog.GetAuthorProfileUrl(post.Author)" alt="@post.Title background">
-                                    </span>
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-sm font-medium text-gray-900">
-                                        @if (authorHref != null)
-                                        {
-                                            <a href="@Blog.GetAuthorLink(post.Author!)" class="hover:underline">@post.Author</a>
-                                        }
-                                        else
-                                        {
-                                            <span>@post.Author</span>
-                                        }
-                                    </p>
-                                    <div class="flex space-x-1 text-sm text-gray-500">
-                                        <time datetime="@Blog.GetDateTimestamp(post.Date)">@Blog.GetDateLabel(post.Date)</time>
-                                        <span aria-hidden="true">&middot;</span>
-                                        <span>@Blog.MinutesToRead(post.WordCount) min read</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="mx-auto grid gap-[32px] md:grid-cols-3">
+
+                <div class="grid grid-cols-1">
+                    <div class="flex-shrink-0">
+                        <a href="#">
+                            <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic.png" alt="">
+                        </a>
                     </div>
-                }                
-            </div>            
-        </section>        
-    }
-    
-    var remainingPosts = posts.Skip(7).Take(15).ToList();
-    if (remainingPosts.Count > 0)
-    {
-        <section class="mt-24 flex justify-center">
-            <div class="flex max-w-screen-lg">
-                <div class="w-2/3">
-                    @foreach (var post in remainingPosts)
-                    {
-                        var authorHref = Blog.GetAuthorLink(post.Author);
-                        <div class="border-b pb-4 mb-4">
-                            <div class="flex justify-between">
-                                <div class="w-3/4">
-                                    <a href="@Blog.GetPostLink(post)" class="mt-2 block">
-                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">@post.Title</p>
-                                        <p class="mt-3 text-base text-gray-500">@post.Summary</p>
-                                    </a>
-                                    <div class="mt-6 flex items-center">
-                                        <div class="flex-shrink-0">
-                                            <span>
-                                                <span class="sr-only">@post.Author</span>
-                                                <img class="h-10 w-10 rounded-full" src="@Blog.GetAuthorProfileUrl(post.Author)" alt="@post.Title background">
-                                            </span>
-                                        </div>
-                                        <div class="ml-3">
-                                            <p class="text-sm font-medium text-gray-900">
-                                                @if (authorHref != null)
-                                                {
-                                                    <a href="@Blog.GetAuthorLink(post.Author!)" class="hover:underline">@post.Author</a>
-                                                }
-                                                else
-                                                {
-                                                    <span>@post.Author</span>
-                                                }
-                                            </p>
-                                            <div class="flex space-x-1 text-sm text-gray-500">
-                                                <time datetime="@Blog.GetDateTimestamp(post.Date)">@Blog.GetDateLabel(post.Date)</time>
-                                                <span aria-hidden="true">&middot;</span>
-                                                <span>@Blog.MinutesToRead(post.WordCount) min read</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="w-1/4">
-                                    <a href="@Blog.GetPostLink(post)" class="pt-4">
-                                        <img class="w-full object-cover max-h-[130px]" src="@Blog.GetSplashImage(post)" alt="">
-                                    </a>
-                                </div>
-                            </div>
+                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                        <div class="flex flex-grow justify-between">
+                            <span class="text-Medium text-textTertiary">31 Dec 2023</span>
+                            <span class="text-Medium text-textTertiary">5 min read</span>
                         </div>
-                    }
+                        <p class="text-H5 text-textPrimary">
+                            Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
+                        </p>
+                        <a class="" href="about#">
+                            <div class="flex items-center gap-[8px]">
+                                <span class="text-Medium text-brandPrimary">Read the article</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
+                                    <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="flex flex-wrap gap-[16px]">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        </ul>
+
+                    </div>
                 </div>
-                <div class="w-1/3">
-                    <div class="pl-8">
-                        <div class="flex items-center">
-                            <img class="w-8 h-8" src="img/logo.svg" alt="Unilake.Www logo">
-                            <span class="hidden sm:block text-lg font-semibold">Unilake.Www</span>
-                        </div>
-                        <div class="p-2">
-                            <p class="text-gray-500">I’m Spencer Sharp. I live in New York City, where I design the future.</p>
-                            <a href="about" class="text-sm font-medium text-gray-900 hover:underline">more information</a>
-                        </div>
-                        <div class="p-4">
-                            @await Html.PartialAsync("FollowLinks")
-                        </div>
+
+                <div class="grid grid-cols-1">
+                    <div class="flex-shrink-0">
+                        <a href="#">
+                            <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic2.png" alt="">
+                        </a>
                     </div>
+                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                        <div class="flex flex-grow justify-between">
+                            <span class="text-Medium text-textTertiary">31 Dec 2023</span>
+                            <span class="text-Medium text-textTertiary">5 min read</span>
+                        </div>
+                        <p class="text-H5 text-textPrimary">
+                            Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
+                        </p>
+                        <a class="" href="about#">
+                            <div class="flex items-center gap-[8px]">
+                                <span class="text-Medium text-brandPrimary">Read the article</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
+                                    <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="flex flex-wrap gap-[16px]">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1">
+                    <div class="flex-shrink-0">
+                        <a href="#">
+                            <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic3.png" alt="">
+                        </a>
+                    </div>
+                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                        <div class="flex flex-grow justify-between">
+                            <span class="text-Medium text-textTertiary">31 Dec 2023</span>
+                            <span class="text-Medium text-textTertiary">5 min read</span>
+                        </div>
+                        <p class="text-H5 text-textPrimary">
+                            Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
+                        </p>
+                        <a class="" href="about#">
+                            <div class="flex items-center gap-[8px]">
+                                <span class="text-Medium text-brandPrimary">Read the article</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
+                                    <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="flex flex-wrap gap-[16px]">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1">
+                    <div class="flex-shrink-0">
+                        <a href="#">
+                            <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic4.png" alt="">
+                        </a>
+                    </div>
+                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                        <div class="flex flex-grow justify-between">
+                            <span class="text-Medium text-textTertiary">31 Dec 2023</span>
+                            <span class="text-Medium text-textTertiary">5 min read</span>
+                        </div>
+                        <p class="text-H5 text-textPrimary">
+                            Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
+                        </p>
+                        <a class="" href="about#">
+                            <div class="flex items-center gap-[8px]">
+                                <span class="text-Medium text-brandPrimary">Read the article</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
+                                    <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="flex flex-wrap gap-[16px]">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1">
+                    <div class="flex-shrink-0">
+                        <a href="#">
+                            <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic5.png" alt="">
+                        </a>
+                    </div>
+                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                        <div class="flex flex-grow justify-between">
+                            <span class="text-Medium text-textTertiary">31 Dec 2023</span>
+                            <span class="text-Medium text-textTertiary">5 min read</span>
+                        </div>
+                        <p class="text-H5 text-textPrimary">
+                            Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
+                        </p>
+                        <a class="" href="about#">
+                            <div class="flex items-center gap-[8px]">
+                                <span class="text-Medium text-brandPrimary">Read the article</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
+                                    <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="flex flex-wrap gap-[16px]">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1">
+                    <div class="flex-shrink-0">
+                        <a href="#">
+                            <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic6.png" alt="">
+                        </a>
+                    </div>
+                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                        <div class="flex flex-grow justify-between">
+                            <span class="text-Medium text-textTertiary">31 Dec 2023</span>
+                            <span class="text-Medium text-textTertiary">5 min read</span>
+                        </div>
+                        <p class="text-H5 text-textPrimary">
+                            Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
+                        </p>
+                        <a class="" href="about#">
+                            <div class="flex items-center gap-[8px]">
+                                <span class="text-Medium text-brandPrimary">Read the article</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
+                                    <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="flex flex-wrap gap-[16px]">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+            //second slider
+        <section class="mt-24 flex justify-center">
+            <div class="grid grid-cols-2 gap-[100px]">
+                <div class="mb:col-span-2">
+                    <div class="sm:mx-0">
+                        <a aria-label="" href="#">
+                            <img src="./img/slider-img.png" alt="Cover Image for" class="shadow-sm border border-borderSecondary rounded-L hover:shadow-2xl">
+                        </a>
+                    </div>
+                </div>
+                <div class="mb:col-span-2 py-[16px] pl-[0px] pr-[16px] grid grid-cols-1 gap-[32px]">
+                    <div class="flex flex-grow justify-between">
+                        <span class="text-Medium text-textTertiary">31 Dec 2023</span>
+                        <span class="text-Medium text-textTertiary">5 min read</span>
+                    </div>
+                    <p class="text-H4 text-textPrimary">
+                        Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
+                    </p>
+                    <a class="" href="about#">
+                        <div class="flex items-center gap-[8px]">
+                            <span class="text-Medium text-brandPrimary">Read the article</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
+                                <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
+                            </svg>
+                        </div>
+                    </a>
+                    <ul class="flex flex-wrap gap-[16px]">
+                        <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
+                        <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
+                        <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                    </ul>
                 </div>
             </div>
         </section>
+
+            //Blog cards
+        <section>
+            <div class="mx-auto grid gap-[32px] md:grid-cols-3">
+
+                <div class="grid grid-cols-1">
+                    <div class="flex-shrink-0">
+                        <a href="#">
+                            <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic.png" alt="">
+                        </a>
+                    </div>
+                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                        <div class="flex flex-grow justify-between">
+                            <span class="text-Medium text-textTertiary">31 Dec 2023</span>
+                            <span class="text-Medium text-textTertiary">5 min read</span>
+                        </div>
+                        <p class="text-H5 text-textPrimary">
+                            Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
+                        </p>
+                        <a class="" href="about#">
+                            <div class="flex items-center gap-[8px]">
+                                <span class="text-Medium text-brandPrimary">Read the article</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
+                                    <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="flex flex-wrap gap-[16px]">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1">
+                    <div class="flex-shrink-0">
+                        <a href="#">
+                            <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic2.png" alt="">
+                        </a>
+                    </div>
+                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                        <div class="flex flex-grow justify-between">
+                            <span class="text-Medium text-textTertiary">31 Dec 2023</span>
+                            <span class="text-Medium text-textTertiary">5 min read</span>
+                        </div>
+                        <p class="text-H5 text-textPrimary">
+                            Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
+                        </p>
+                        <a class="" href="about#">
+                            <div class="flex items-center gap-[8px]">
+                                <span class="text-Medium text-brandPrimary">Read the article</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
+                                    <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="flex flex-wrap gap-[16px]">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1">
+                    <div class="flex-shrink-0">
+                        <a href="#">
+                            <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic3.png" alt="">
+                        </a>
+                    </div>
+                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                        <div class="flex flex-grow justify-between">
+                            <span class="text-Medium text-textTertiary">31 Dec 2023</span>
+                            <span class="text-Medium text-textTertiary">5 min read</span>
+                        </div>
+                        <p class="text-H5 text-textPrimary">
+                            Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
+                        </p>
+                        <a class="" href="about#">
+                            <div class="flex items-center gap-[8px]">
+                                <span class="text-Medium text-brandPrimary">Read the article</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
+                                    <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="flex flex-wrap gap-[16px]">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1">
+                    <div class="flex-shrink-0">
+                        <a href="#">
+                            <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic4.png" alt="">
+                        </a>
+                    </div>
+                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                        <div class="flex flex-grow justify-between">
+                            <span class="text-Medium text-textTertiary">31 Dec 2023</span>
+                            <span class="text-Medium text-textTertiary">5 min read</span>
+                        </div>
+                        <p class="text-H5 text-textPrimary">
+                            Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
+                        </p>
+                        <a class="" href="about#">
+                            <div class="flex items-center gap-[8px]">
+                                <span class="text-Medium text-brandPrimary">Read the article</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
+                                    <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="flex flex-wrap gap-[16px]">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1">
+                    <div class="flex-shrink-0">
+                        <a href="#">
+                            <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic5.png" alt="">
+                        </a>
+                    </div>
+                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                        <div class="flex flex-grow justify-between">
+                            <span class="text-Medium text-textTertiary">31 Dec 2023</span>
+                            <span class="text-Medium text-textTertiary">5 min read</span>
+                        </div>
+                        <p class="text-H5 text-textPrimary">
+                            Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
+                        </p>
+                        <a class="" href="about#">
+                            <div class="flex items-center gap-[8px]">
+                                <span class="text-Medium text-brandPrimary">Read the article</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
+                                    <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="flex flex-wrap gap-[16px]">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1">
+                    <div class="flex-shrink-0">
+                        <a href="#">
+                            <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic6.png" alt="">
+                        </a>
+                    </div>
+                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                        <div class="flex flex-grow justify-between">
+                            <span class="text-Medium text-textTertiary">31 Dec 2023</span>
+                            <span class="text-Medium text-textTertiary">5 min read</span>
+                        </div>
+                        <p class="text-H5 text-textPrimary">
+                            Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
+                        </p>
+                        <a class="" href="about#">
+                            <div class="flex items-center gap-[8px]">
+                                <span class="text-Medium text-brandPrimary">Read the article</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
+                                    <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="flex flex-wrap gap-[16px]">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+            //pagination
+        <div class="flex items-center justify-center gap-[16px]">
+
+            <a href="#" class="text-textPrimary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M15.41 16.59L10.83 12L15.41 7.41L14 6L8 12L14 18L15.41 16.59Z" fill="#E6EFF4" />
+                </svg>
+            </a>
+
+            <a href="#" class="px-[8px] py-[8px] border rounded-[4px] text-Regular text-#F9F9F7">1</a>
+            <a href="#" class="px-[8px] py-[8px] text-Regular text-#F9F9F7">2</a>
+            <a href="#" class="px-[8px] py-[8px] text-Regular text-#F9F9F7">3</a>
+            <a href="#" class="px-[8px] py-[8px] text-Regular text-#F9F9F7">4</a>
+            <a href="#" class="px-[8px] py-[8px] text-Regular text-#F9F9F7">5</a>
+
+            <a href="#" class="text-textPrimary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M8.59003 16.59L13.17 12L8.59003 7.41L10 6L16 12L10 18L8.59003 16.59Z" fill="#E6EFF4" />
+                </svg>
+            </a>
+        </div>
+
+
     }
-}
 </div>
+
+@{
+    //subscribe
+    @await Html.PartialAsync("Subscribe")
+}
