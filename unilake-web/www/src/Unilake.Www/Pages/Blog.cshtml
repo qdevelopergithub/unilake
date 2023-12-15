@@ -5,7 +5,7 @@
     ViewData["Title"] = "Unilake.Www Blog";
 }
 
-<div class="2xl:container px-L sm:py-[160px] py-[80px] mx-auto grid grid-cols-1 md:gap-XXL gap-XL">
+<div class="2xl:container px-L sm:py-[160px] py-[80px] mx-auto grid grid-cols-1 md:gap-XXL gap-XL font-inter">
     @{
 
         <div class="flex flex-col gap-M">
@@ -246,12 +246,12 @@
 
                         <div class="flex items-end gap-S">
                             <a class="" href="about#">
-                            <div class="flex">
-                                <span class="text-Medium text-brandPrimary">Read the article</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
-                                    <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
-                                </svg>
-                            </div>
+                                <div class="flex">
+                                    <span class="text-Medium text-brandPrimary">Read the article</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
+                                        <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
+                                    </svg>
+                                </div>
                             </a>
                         </div>
                         <ul class="flex flex-wrap gap-M items-end">
@@ -387,7 +387,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="grid grid-cols-1 md:px-M md:mx-[-16px] md:border-x md:border-borderSecondary">
                     <div class="flex-shrink-0">
                         <a href="#">
@@ -479,5 +479,7 @@
 
 @{
     //subscribe
-    @await Html.PartialAsync("Subscribe")
+    <div class="2xl:container mx-auto">
+        @await Html.PartialAsync("Subscribe")
+    </div>
 }
