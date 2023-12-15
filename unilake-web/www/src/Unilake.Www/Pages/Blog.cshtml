@@ -5,17 +5,17 @@
     ViewData["Title"] = "Unilake.Www Blog";
 }
 
-<div class="px-[160px] py-[240px] bg-backgroundSecondary mx-auto grid grid-cols-1 gap-[100px]">
+<div class="md:px-[160px] px-L md:py-[240px] py-[80px] bg-backgroundSecondary mx-auto grid grid-cols-1 md:gap-XXL gap-XL">
     @{
 
-        <div class="flex flex-col">
+        <div class="flex flex-col gap-M">
             <span class="text-H3 text-brandPrimary">Blog</span>
             <span class="text-H3 text-textSecondary">Description</span>
         </div>
 
-        <div class="grid grid-cols-1 gap-[16px]">
+        <div class="grid grid-cols-1 gap-XL">
             <div class="relative w-full">
-                <span class="absolute inset-y-0 left-0 flex items-center pl-[12px]">
+                <span class="absolute inset-y-0 left-0 flex items-center py-[13px] pl-[12px]">
                     <svg class="h-[17.49px] w-[17.49px] text-textSecondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
@@ -23,15 +23,15 @@
 
                 <input type="text" placeholder="Search" class="placeholder:text-Medium placeholder:text-secondary py-[12px] px-[36px] w-full h-[48px] rounded-L bg-transparent border-borderPrimary border">
             </div>
-            <ul class="flex flex-wrap gap-[16px] h-[48px]">
-                <li class="text-Medium border border-borderPrimary text-textPrimary px-[24px] py-[12px] rounded-L h-[43px]">All</li>
-                <li class="text-Medium border border-borderPrimary text-textPrimary px-[24px] py-[12px] rounded-L h-[43px]">Auth</li>
-                <li class="text-Medium border border-borderPrimary text-textPrimary px-[24px] py-[12px] rounded-L h-[43px]">Catching / Offline-First</li>
-                <li class="text-Medium border border-borderPrimary text-textPrimary px-[24px] py-[12px] rounded-L h-[43px]">Data Platform</li>
-                <li class="text-Medium border border-borderPrimary text-textPrimary px-[24px] py-[12px] rounded-L h-[43px]">DevTools</li>
-                <li class="text-Medium border border-borderPrimary text-textPrimary px-[24px] py-[12px] rounded-L h-[43px]">Forreign Data Wrapper</li>
-                <li class="text-Medium border border-borderPrimary text-textPrimary px-[24px] py-[12px] rounded-L h-[43px]">Low-Code</li>
-                <li class="text-Medium border border-borderPrimary text-textPrimary px-[24px] py-[12px] rounded-L h-[43px]">Messaging</li>
+            <ul class="flex flex-wrap gap-M h-[48px] overflow-hidden">
+                <li class="text-Medium border border-borderPrimary text-textPrimary px-L py-SM rounded-L h-[43px]">All</li>
+                <li class="text-Medium border border-borderPrimary text-textPrimary px-L py-SM rounded-L h-[43px]">Auth</li>
+                <li class="text-Medium border border-borderPrimary text-textPrimary px-L py-SM rounded-L h-[43px]">Catching / Offline-First</li>
+                <li class="text-Medium border border-borderPrimary text-textPrimary px-L py-SM rounded-L h-[43px]">Data Platform</li>
+                <li class="text-Medium border border-borderPrimary text-textPrimary px-L py-SM rounded-L h-[43px]">DevTools</li>
+                <li class="text-Medium border border-borderPrimary text-textPrimary px-L py-SM rounded-L h-[43px]">Forreign Data Wrapper</li>
+                <li class="text-Medium border border-borderPrimary text-textPrimary px-L py-SM rounded-L h-[43px]">Low-Code</li>
+                <li class="text-Medium border border-borderPrimary text-textPrimary px-L py-SM rounded-L h-[43px]">Messaging</li>
             </ul>
         </div>
 
@@ -39,7 +39,7 @@
 
             //Blog cards
         <section>
-            <div class="mx-auto grid gap-[32px] md:grid-cols-3">
+            <div class="mx-auto grid md:gap-XL gap-L md:grid-cols-3">
 
                 <div class="grid grid-cols-1">
                     <div class="flex-shrink-0">
@@ -47,7 +47,7 @@
                             <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic.png" alt="">
                         </a>
                     </div>
-                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                    <div class="mb:col-span-2 p-M grid grid-cols-1 gap-L">
                         <div class="flex flex-grow justify-between">
                             <span class="text-Medium text-textTertiary">31 Dec 2023</span>
                             <span class="text-Medium text-textTertiary">5 min read</span>
@@ -56,19 +56,18 @@
                             Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
                         </p>
                         <a class="" href="about#">
-                            <div class="flex items-center gap-[8px]">
+                            <div class="flex items-center gap-S">
                                 <span class="text-Medium text-brandPrimary">Read the article</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
                                     <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
                                 </svg>
                             </div>
                         </a>
-                        <ul class="flex flex-wrap gap-[16px]">
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        <ul class="flex flex-wrap gap-M">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 3</li>
                         </ul>
-
                     </div>
                 </div>
 
@@ -78,7 +77,7 @@
                             <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic2.png" alt="">
                         </a>
                     </div>
-                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                    <div class="mb:col-span-2 p-M grid grid-cols-1 gap-L">
                         <div class="flex flex-grow justify-between">
                             <span class="text-Medium text-textTertiary">31 Dec 2023</span>
                             <span class="text-Medium text-textTertiary">5 min read</span>
@@ -87,19 +86,18 @@
                             Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
                         </p>
                         <a class="" href="about#">
-                            <div class="flex items-center gap-[8px]">
+                            <div class="flex items-center gap-S">
                                 <span class="text-Medium text-brandPrimary">Read the article</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
                                     <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
                                 </svg>
                             </div>
                         </a>
-                        <ul class="flex flex-wrap gap-[16px]">
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        <ul class="flex flex-wrap gap-M">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 3</li>
                         </ul>
-
                     </div>
                 </div>
 
@@ -109,7 +107,7 @@
                             <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic3.png" alt="">
                         </a>
                     </div>
-                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                    <div class="mb:col-span-2 p-M grid grid-cols-1 gap-L">
                         <div class="flex flex-grow justify-between">
                             <span class="text-Medium text-textTertiary">31 Dec 2023</span>
                             <span class="text-Medium text-textTertiary">5 min read</span>
@@ -118,19 +116,18 @@
                             Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
                         </p>
                         <a class="" href="about#">
-                            <div class="flex items-center gap-[8px]">
+                            <div class="flex items-center gap-S">
                                 <span class="text-Medium text-brandPrimary">Read the article</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
                                     <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
                                 </svg>
                             </div>
                         </a>
-                        <ul class="flex flex-wrap gap-[16px]">
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        <ul class="flex flex-wrap gap-M">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 3</li>
                         </ul>
-
                     </div>
                 </div>
 
@@ -140,7 +137,7 @@
                             <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic4.png" alt="">
                         </a>
                     </div>
-                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                    <div class="mb:col-span-2 p-M grid grid-cols-1 gap-L">
                         <div class="flex flex-grow justify-between">
                             <span class="text-Medium text-textTertiary">31 Dec 2023</span>
                             <span class="text-Medium text-textTertiary">5 min read</span>
@@ -149,19 +146,18 @@
                             Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
                         </p>
                         <a class="" href="about#">
-                            <div class="flex items-center gap-[8px]">
+                            <div class="flex items-center gap-S">
                                 <span class="text-Medium text-brandPrimary">Read the article</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
                                     <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
                                 </svg>
                             </div>
                         </a>
-                        <ul class="flex flex-wrap gap-[16px]">
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        <ul class="flex flex-wrap gap-M">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 3</li>
                         </ul>
-
                     </div>
                 </div>
 
@@ -171,7 +167,7 @@
                             <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic5.png" alt="">
                         </a>
                     </div>
-                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                    <div class="mb:col-span-2 p-M grid grid-cols-1 gap-L">
                         <div class="flex flex-grow justify-between">
                             <span class="text-Medium text-textTertiary">31 Dec 2023</span>
                             <span class="text-Medium text-textTertiary">5 min read</span>
@@ -180,19 +176,18 @@
                             Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
                         </p>
                         <a class="" href="about#">
-                            <div class="flex items-center gap-[8px]">
+                            <div class="flex items-center gap-S">
                                 <span class="text-Medium text-brandPrimary">Read the article</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
                                     <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
                                 </svg>
                             </div>
                         </a>
-                        <ul class="flex flex-wrap gap-[16px]">
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        <ul class="flex flex-wrap gap-M">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 3</li>
                         </ul>
-
                     </div>
                 </div>
 
@@ -202,7 +197,7 @@
                             <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic6.png" alt="">
                         </a>
                     </div>
-                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                    <div class="mb:col-span-2 p-M grid grid-cols-1 gap-L">
                         <div class="flex flex-grow justify-between">
                             <span class="text-Medium text-textTertiary">31 Dec 2023</span>
                             <span class="text-Medium text-textTertiary">5 min read</span>
@@ -211,19 +206,18 @@
                             Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
                         </p>
                         <a class="" href="about#">
-                            <div class="flex items-center gap-[8px]">
+                            <div class="flex items-center gap-S">
                                 <span class="text-Medium text-brandPrimary">Read the article</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
                                     <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
                                 </svg>
                             </div>
                         </a>
-                        <ul class="flex flex-wrap gap-[16px]">
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        <ul class="flex flex-wrap gap-M">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 3</li>
                         </ul>
-
                     </div>
                 </div>
 
@@ -231,8 +225,8 @@
         </section>
 
             //second slider
-        <section class="mt-24 flex justify-center">
-            <div class="grid grid-cols-2 gap-[100px]">
+        <section class="mt-24 flex justify-center md:block hidden">
+            <div class="grid grid-cols-2 gap-XXL">
                 <div class="mb:col-span-2">
                     <div class="sm:mx-0">
                         <a aria-label="" href="#">
@@ -240,26 +234,26 @@
                         </a>
                     </div>
                 </div>
-                <div class="mb:col-span-2 py-[16px] pl-[0px] pr-[16px] grid grid-cols-1 gap-[32px]">
+                <div class="mb:col-span-2 p-M grid grid-cols-1 gap-L">
                     <div class="flex flex-grow justify-between">
                         <span class="text-Medium text-textTertiary">31 Dec 2023</span>
                         <span class="text-Medium text-textTertiary">5 min read</span>
                     </div>
-                    <p class="text-H4 text-textPrimary">
+                    <p class="text-H5 text-textPrimary">
                         Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
                     </p>
                     <a class="" href="about#">
-                        <div class="flex items-center gap-[8px]">
+                        <div class="flex items-center gap-S">
                             <span class="text-Medium text-brandPrimary">Read the article</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
                                 <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
                             </svg>
                         </div>
                     </a>
-                    <ul class="flex flex-wrap gap-[16px]">
-                        <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
-                        <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
-                        <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                    <ul class="flex flex-wrap gap-M">
+                        <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 1</li>
+                        <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 2</li>
+                        <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 3</li>
                     </ul>
                 </div>
             </div>
@@ -267,7 +261,7 @@
 
             //Blog cards
         <section>
-            <div class="mx-auto grid gap-[32px] md:grid-cols-3">
+            <div class="mx-auto grid md:gap-XL gap-L md:grid-cols-3">
 
                 <div class="grid grid-cols-1">
                     <div class="flex-shrink-0">
@@ -275,7 +269,7 @@
                             <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic.png" alt="">
                         </a>
                     </div>
-                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                    <div class="mb:col-span-2 p-M grid grid-cols-1 gap-L">
                         <div class="flex flex-grow justify-between">
                             <span class="text-Medium text-textTertiary">31 Dec 2023</span>
                             <span class="text-Medium text-textTertiary">5 min read</span>
@@ -284,19 +278,18 @@
                             Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
                         </p>
                         <a class="" href="about#">
-                            <div class="flex items-center gap-[8px]">
+                            <div class="flex items-center gap-S">
                                 <span class="text-Medium text-brandPrimary">Read the article</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
                                     <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
                                 </svg>
                             </div>
                         </a>
-                        <ul class="flex flex-wrap gap-[16px]">
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        <ul class="flex flex-wrap gap-M">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 3</li>
                         </ul>
-
                     </div>
                 </div>
 
@@ -306,7 +299,7 @@
                             <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic2.png" alt="">
                         </a>
                     </div>
-                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                    <div class="mb:col-span-2 p-M grid grid-cols-1 gap-L">
                         <div class="flex flex-grow justify-between">
                             <span class="text-Medium text-textTertiary">31 Dec 2023</span>
                             <span class="text-Medium text-textTertiary">5 min read</span>
@@ -315,19 +308,18 @@
                             Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
                         </p>
                         <a class="" href="about#">
-                            <div class="flex items-center gap-[8px]">
+                            <div class="flex items-center gap-S">
                                 <span class="text-Medium text-brandPrimary">Read the article</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
                                     <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
                                 </svg>
                             </div>
                         </a>
-                        <ul class="flex flex-wrap gap-[16px]">
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        <ul class="flex flex-wrap gap-M">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 3</li>
                         </ul>
-
                     </div>
                 </div>
 
@@ -337,7 +329,7 @@
                             <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic3.png" alt="">
                         </a>
                     </div>
-                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                    <div class="mb:col-span-2 p-M grid grid-cols-1 gap-L">
                         <div class="flex flex-grow justify-between">
                             <span class="text-Medium text-textTertiary">31 Dec 2023</span>
                             <span class="text-Medium text-textTertiary">5 min read</span>
@@ -346,19 +338,18 @@
                             Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
                         </p>
                         <a class="" href="about#">
-                            <div class="flex items-center gap-[8px]">
+                            <div class="flex items-center gap-S">
                                 <span class="text-Medium text-brandPrimary">Read the article</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
                                     <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
                                 </svg>
                             </div>
                         </a>
-                        <ul class="flex flex-wrap gap-[16px]">
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        <ul class="flex flex-wrap gap-M">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 3</li>
                         </ul>
-
                     </div>
                 </div>
 
@@ -368,7 +359,7 @@
                             <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic4.png" alt="">
                         </a>
                     </div>
-                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                    <div class="mb:col-span-2 p-M grid grid-cols-1 gap-L">
                         <div class="flex flex-grow justify-between">
                             <span class="text-Medium text-textTertiary">31 Dec 2023</span>
                             <span class="text-Medium text-textTertiary">5 min read</span>
@@ -377,19 +368,18 @@
                             Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
                         </p>
                         <a class="" href="about#">
-                            <div class="flex items-center gap-[8px]">
+                            <div class="flex items-center gap-S">
                                 <span class="text-Medium text-brandPrimary">Read the article</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
                                     <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
                                 </svg>
                             </div>
                         </a>
-                        <ul class="flex flex-wrap gap-[16px]">
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        <ul class="flex flex-wrap gap-M">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 3</li>
                         </ul>
-
                     </div>
                 </div>
 
@@ -399,7 +389,7 @@
                             <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic5.png" alt="">
                         </a>
                     </div>
-                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                    <div class="mb:col-span-2 p-M grid grid-cols-1 gap-L">
                         <div class="flex flex-grow justify-between">
                             <span class="text-Medium text-textTertiary">31 Dec 2023</span>
                             <span class="text-Medium text-textTertiary">5 min read</span>
@@ -408,19 +398,18 @@
                             Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
                         </p>
                         <a class="" href="about#">
-                            <div class="flex items-center gap-[8px]">
+                            <div class="flex items-center gap-S">
                                 <span class="text-Medium text-brandPrimary">Read the article</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
                                     <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
                                 </svg>
                             </div>
                         </a>
-                        <ul class="flex flex-wrap gap-[16px]">
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        <ul class="flex flex-wrap gap-M">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 3</li>
                         </ul>
-
                     </div>
                 </div>
 
@@ -430,7 +419,7 @@
                             <img class="w-full rounded-L border border-borderSecondary object-cover" src="./img/Pic6.png" alt="">
                         </a>
                     </div>
-                    <div class="mb:col-span-2 p-[16px] grid grid-cols-1 gap-[24px]">
+                    <div class="mb:col-span-2 p-M grid grid-cols-1 gap-L">
                         <div class="flex flex-grow justify-between">
                             <span class="text-Medium text-textTertiary">31 Dec 2023</span>
                             <span class="text-Medium text-textTertiary">5 min read</span>
@@ -439,19 +428,18 @@
                             Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
                         </p>
                         <a class="" href="about#">
-                            <div class="flex items-center gap-[8px]">
+                            <div class="flex items-center gap-S">
                                 <span class="text-Medium text-brandPrimary">Read the article</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="relative my-auto h-[16px] w-[16px]" viewBox="0 0 16 17" fill="none">
                                     <path d="M7.99996 3.16663L7.05996 4.10663L10.78 7.83329H2.66663V9.16663H10.78L7.05996 12.8933L7.99996 13.8333L13.3333 8.49996L7.99996 3.16663Z" fill="#F37441" />
                                 </svg>
                             </div>
                         </a>
-                        <ul class="flex flex-wrap gap-[16px]">
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 1</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 2</li>
-                            <li class="border border-borderPrimary text-Medium text-textPrimary px-[16px] py-[4px] rounded-full">Tag 3</li>
+                        <ul class="flex flex-wrap gap-M">
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 1</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 2</li>
+                            <li class="border border-borderPrimary text-Medium text-textPrimary px-M py-XS rounded-L">Tag 3</li>
                         </ul>
-
                     </div>
                 </div>
 

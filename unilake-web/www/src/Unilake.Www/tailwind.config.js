@@ -3,7 +3,11 @@ module.exports = {
     darkMode: 'class',
     theme: {
         screens: {
-            
+            'sm': '640px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px',
+            '2xl': '1536px',
         },
         colors: {
             backgroundSecondary: '#121212',
@@ -32,18 +36,19 @@ module.exports = {
             inter: 'Inter , sans-serif'
         },
         width: {
-            ArrowForward: '10.67',
+            full:'100%',
+            ArrowForward: '10.67px',
             Tag: '73px',
         },
         height: {
             Tag: '27px',
-            ArrowForward: '10.67'
+            ArrowForward: '10.67px'
         },
         top: {
-            ArrowForward: '2.67'
+            ArrowForward: '2.67px'
         },
         left: {
-            ArrowForward: '2.67'
+            ArrowForward: '2.67px'
         },
         borderWidth: {
             DEFAULT: '1px',
@@ -57,7 +62,7 @@ module.exports = {
             M: '16px',
             L: '24px',
             XL: '32px',
-            XXL: '100px'
+            XXL: '100px',
         },
         padding: {
             XS: '4px',
