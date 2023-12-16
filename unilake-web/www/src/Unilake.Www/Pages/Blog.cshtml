@@ -451,7 +451,7 @@
             </div>
         </section>
 
-            //pagination
+        //pagination
         <div class="flex items-center justify-center gap-M">
 
             <a href="#" class="text-textPrimary">
@@ -479,7 +479,9 @@
 
 @{
     //subscribe
-    <div class="2xl:container mx-auto">
-        @await Html.PartialAsync("Subscribe")
+    <div class="bg-backgroundTertiary border-b border-borderSecondary">
+        <div class="2xl:container mx-auto">
+            @await Html.PartialAsync("Subscribe")
+        </div>
     </div>
 }
