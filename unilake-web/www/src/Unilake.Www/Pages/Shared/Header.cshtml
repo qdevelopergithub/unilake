@@ -1,4 +1,4 @@
-<header class="3xl:cnotainer border-b border-borderSecondary h-[91px] bg-white dark:bg-black px-L items-center justify-between py-L grid grid-cols-4 font-inter">
+<header class="3xl:cnotainer border-b border-borderSecondary sm:h-[91px] h-[80px] bg-white dark:bg-black px-L items-center justify-between py-L grid grid-cols-4 font-inter">
     <div class="col-span-1">
         <div class="cursor-pointer">
             <a class="navbar-brand flex items-center" href="./">
@@ -18,7 +18,7 @@
             </a>
         </div>
     </div>
-    <nav class="flex flex-grow col-span-2 items-center justify-center">
+    <nav class="flex flex-grow col-span-2 items-center justify-center md:block hidden">
         <ul class="flex gap-XL items-center">
             @{
                 void RenderNavLink(string href, string childContent, string? cls = null)
@@ -44,6 +44,7 @@
             }
         </ul>
     </nav>
+    <div class="md:block hidden">
     <div class="col-span-1 justify-end flex items-center gap-L">
         <div data-component="DarkModeToggle" class="ml-2 w-10"></div>
         <button class="bg-brandPrimary px-L py-SM rounded-L h-[43px] w-[208px] flex gap-S items-center">
@@ -54,6 +55,7 @@
                 Start Your Project
             </span>
         </button>
+    </div>
     </div>
 </header>
 <script type="module">
