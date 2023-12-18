@@ -20,7 +20,8 @@ module.exports = {
                 borderPrimary: '#6F6E73',
                 textTertiary: '#6F6E73',
                 textPrimary: '#E6EFF4',
-                onBrandPrimary: '#4F1B05'
+                onBrandPrimary: '#4F1B05',
+                brandSecondary:'#822C08'
 
             },
             boxShadow: {
