@@ -1,4 +1,5 @@
 ﻿@page "/article"
+@attribute [RenderStatic]
 @model Unilake.Www.Pages.Shared.ArticleModel
 @{
     <div class="2xl:container md:py-XXL py-[64px] grid grid-cols-1 md:gap-XXL gap-XL px-L mx-auto">
@@ -31,7 +32,7 @@
             <div class="bg-backgroundTertiary border border-borderSecondary px-M rounded-S">
                 <span class="text-H5 text-textPrimary border-b border-borderSecondary flex w-full py-M max-h-[54px]">On this page</span>
                 <ul class="list-unstyled gap-S">
-                    <li>
+                    <li class="activeSectionOfArticle">
                         <span class="text-Medium text-textSecondary flex h-[53px] py-SM px-XL items-center">Section 1</span>
                     </li>
                     <li>
