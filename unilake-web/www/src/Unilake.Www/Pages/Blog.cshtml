@@ -5,12 +5,12 @@
     ViewData["Title"] = "Unilake.Www Blog";
 }
 
-<div class="2xl:container px-L sm:py-XXL py-[80px] mx-auto grid grid-cols-1 md:gap-XXL gap-XL font-inter">
+<div class="2xl:container px-L md:py-XXL py-[80px] mx-auto grid grid-cols-1 md:gap-XXL gap-XL font-inter">
     @{
 
         <div class="flex flex-col gap-M">
             <span class="text-H3 text-brandPrimary">Blog</span>
-            <span class="text-H3 text-textSecondary">Description</span>
+            <span class="text-H5 text-textSecondary">Description</span>
         </div>
 
         @await Html.PartialAsync("BlogSlider")
