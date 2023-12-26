@@ -21,7 +21,9 @@ module.exports = {
                 textTertiary: '#6F6E73',
                 textPrimary: '#E6EFF4',
                 onBrandPrimary: '#4F1B05',
-                brandSecondary:'#822C08'
+                brandSecondary: '#822C08',
+                errorPrimary:'#F8D7D7',
+                onErrorPrimary:'#571616'
 
             },
             boxShadow: {
