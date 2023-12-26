@@ -1,14 +1,8 @@
 ﻿@inject MarkdownBlog Blog
-@{
 
+<div class="bg-backgroundTertiary  mx-[-24px] md:block hidden py-XL grid justify-center items-center relative h-[500px] overflow-hidden">
 
-    <div id="default-carousel" class="relative bg-backgroundTertiary mx-[-24px] md:block hidden" data-carousel="slide">
-        <div class="relative overflow-hidden h-[460px] py-XL">
-
-            @{
-
-            //item one
-                <div class="hidden duration-1000 ease-linear py-XL items-center flex" id="carousel-item-1" data-carousel-item>
+     <div class="slide absolute duration-1000 ease-linear items-center flex h-[460px]">
                     <div class="grid grid-cols-2 gap-XXL px-[50px] mx-[50px] border-x border-borderSecondary">
                         <div class="mb:col-span-2">
                             <div class="sm:mx-0">
@@ -48,10 +42,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+     </div>
 
-            //item two
-                <div class="hidden duration-1000 ease-linear py-XL items-center flex" id="carousel-item-2" data-carousel-item>
+      <div class="slide absolute duration-1000 ease-linear items-center flex h-[460px]">
                     <div class="grid grid-cols-2 gap-XXL px-[50px] mx-[50px] border-x border-borderSecondary">
                         <div class="mb:col-span-2">
                             <div class="sm:mx-0">
@@ -91,11 +84,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+     </div>
 
-
-                //item three
-                <div class="hidden duration-1000 ease-linear py-XL items-center flex" id="carousel-item-3" data-carousel-item>
+      <div class="slide absolute duration-1000 ease-linear items-center flex h-[460px]">
                     <div class="grid grid-cols-2 gap-XXL px-[50px] mx-[50px] border-x border-borderSecondary">
                         <div class="mb:col-span-2">
                             <div class="sm:mx-0">
@@ -135,10 +126,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+     </div>
 
-                //item four
-                <div class="hidden duration-1000 ease-linear py-XL items-center flex" id="carousel-item-4" data-carousel-item>
+      <div class="slide absolute duration-1000 ease-linear items-center flex h-[460px]">
                     <div class="grid grid-cols-2 gap-XXL px-[50px] mx-[50px] border-x border-borderSecondary">
                         <div class="mb:col-span-2">
                             <div class="sm:mx-0">
@@ -178,14 +168,46 @@
                             </div>
                         </div>
                     </div>
-                </div>
+     </div>
+    
+</div>
 
-            }
+<script>
+    const slides = document.querySelectorAll(".slide");
+    const totalSlides = slides.length;
+    var index = 0;
+    var interval = 3000;
+    var sliderInterval;
 
+    slides.forEach((slide, index) => {
+        slide.style.left = `${index * 100}%`;
+    });
 
-        </div>
-    </div>
+    const slideImage = () => {
+        slides.forEach((slide) => {
+            slide.style.transform = `translateX(-${index * 100}%)`;
+        });
+    };
 
+    const startSlider = () => {
+        sliderInterval = setInterval(() => {
+            index = (index + 1) % totalSlides;
+            slideImage();
+        }, interval);
+    };
 
-}
+    const pauseSlider = () => {
+        clearInterval(sliderInterval);
+    };
 
+    const resumeSlider = () => {
+        startSlider();
+    };
+
+    slides.forEach((slide) => {
+        slide.addEventListener("mouseenter", pauseSlider);
+        slide.addEventListener("mouseleave", resumeSlider);
+    });
+
+    window.onload = startSlider;
+</script>
