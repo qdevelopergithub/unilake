@@ -23,7 +23,8 @@ module.exports = {
                 onBrandPrimary: '#4F1B05',
                 brandSecondary: '#822C08',
                 errorPrimary:'#F8D7D7',
-                onErrorPrimary:'#571616'
+                onErrorPrimary: '#571616',
+                backgroundQuaternary: '#4A494D'
 
             },
             boxShadow: {
