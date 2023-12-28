@@ -3,7 +3,7 @@
 <div class="bg-backgroundTertiary  mx-[-24px] md:grid hidden py-XL justify-center items-center relative xl:h-[600px] h-[500px] overflow-hidden">
 
     <div class="slide absolute duration-2000 ease-in-out items-center flex h-[460px] w-full">
-        <div class="grid grid-cols-2 gap-XXL px-[50px] mx-[50px] border-x border-borderSecondary">
+        <div class="inner-slide grid grid-cols-2 gap-XXL px-[50px] mx-[50px] border-x border-borderSecondary">
             <div class="mb:col-span-2">
                 <div class="sm:mx-0">
                     <a href="#">
@@ -45,7 +45,7 @@
     </div>
 
     <div class="slide absolute duration-2000 ease-in-out items-center flex h-[460px] w-full">
-        <div class="grid grid-cols-2 gap-XXL px-[50px] mx-[50px] border-x border-borderSecondary">
+        <div class="inner-slide grid grid-cols-2 gap-XXL px-[50px] mx-[50px] border-x border-borderSecondary">
             <div class="mb:col-span-2">
                 <div class="sm:mx-0">
                     <a href="#">
@@ -87,7 +87,7 @@
     </div>
 
     <div class="slide absolute duration-2000 ease-in-out items-center flex h-[460px] w-full">
-        <div class="grid grid-cols-2 gap-XXL px-[50px] mx-[50px] border-x border-borderSecondary">
+        <div class="inner-slide grid grid-cols-2 gap-XXL px-[50px] mx-[50px] border-x border-borderSecondary">
             <div class="mb:col-span-2">
                 <div class="sm:mx-0">
                     <a href="#">
@@ -132,6 +132,7 @@
 
 <script>
     const slides = document.querySelectorAll(".slide");
+    const innerSlides = document.querySelectorAll(".inner-slide");
     var counter = 0;
     var sliderInterval;
     var isIncrementing = false;
@@ -171,7 +172,7 @@
         startSlider();
     };
 
-    slides.forEach((slide) => {
+    innerSlides.forEach((slide) => {
         slide.addEventListener("mouseenter", pauseSlider);
         slide.addEventListener("mouseleave", resumeSlider);
     });
