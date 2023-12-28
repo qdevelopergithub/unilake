@@ -22,7 +22,7 @@ module.exports = {
                 textPrimary: '#E6EFF4',
                 onBrandPrimary: '#4F1B05',
                 brandSecondary: '#822C08',
-                errorPrimary:'#F8D7D7',
+                errorPrimary: '#F8D7D7',
                 onErrorPrimary: '#571616',
                 backgroundQuaternary: '#4A494D'
 
@@ -87,6 +87,9 @@ module.exports = {
                 L: '24px',
                 XL: '32px',
                 XXL: '100px',
+            },
+            transitionDuration: {
+                '2000': '2000ms',
             }
         }
     },

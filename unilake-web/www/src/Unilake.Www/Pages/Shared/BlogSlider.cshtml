@@ -1,8 +1,8 @@
 ﻿@inject MarkdownBlog Blog
 
-<div class="bg-backgroundTertiary  mx-[-24px] md:block hidden py-XL grid justify-center items-center relative h-[500px] overflow-hidden">
+<div class="bg-backgroundTertiary  mx-[-24px] md:grid hidden py-XL justify-center items-center relative xl:h-[600px] h-[500px] overflow-hidden">
 
-    <div class="slide absolute duration-1000 ease-linear items-center flex h-[460px] w-full">
+    <div class="slide absolute duration-2000 ease-in-out items-center flex h-[460px] w-full">
         <div class="grid grid-cols-2 gap-XXL px-[50px] mx-[50px] border-x border-borderSecondary">
             <div class="mb:col-span-2">
                 <div class="sm:mx-0">
@@ -44,7 +44,7 @@
         </div>
     </div>
 
-    <div class="slide absolute duration-1000 ease-linear items-center flex h-[460px] w-full">
+    <div class="slide absolute duration-2000 ease-in-out items-center flex h-[460px] w-full">
         <div class="grid grid-cols-2 gap-XXL px-[50px] mx-[50px] border-x border-borderSecondary">
             <div class="mb:col-span-2">
                 <div class="sm:mx-0">
@@ -86,7 +86,7 @@
         </div>
     </div>
 
-    <div class="slide absolute duration-1000 ease-linear items-center flex h-[460px] w-full">
+    <div class="slide absolute duration-2000 ease-in-out items-center flex h-[460px] w-full">
         <div class="grid grid-cols-2 gap-XXL px-[50px] mx-[50px] border-x border-borderSecondary">
             <div class="mb:col-span-2">
                 <div class="sm:mx-0">
@@ -160,7 +160,7 @@
                 counter--;
             }
             slideImage();
-        }, 2000)
+        }, 3000)
     }
 
     const pauseSlider = () => {

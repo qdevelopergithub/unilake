@@ -24,7 +24,7 @@
                 void RenderNavLink(string href, string childContent, string? cls = null)
                 {
                     <li class="@Html.ClassNames("flex items-center",cls)">
-                        <a href="@href" class="@Html.ClassNames("flex items-center justify-start hover:text-sky-500 dark:hover:text-sky-400",
+                        <a href="@href" class="@Html.ClassNames("flex items-center justify-start hover:underline hover:underline-offset-4",
                                     Html.MatchesPath(href) ? "text-blue-700 dark:text-blue-300" : "")">
                             @Html.Raw(childContent)
                         </a>
@@ -38,15 +38,16 @@
                 }
                 RenderNavLink("whatsnew", "Products");
                 RenderNavLink("videos", "Developers");
-                RenderNavLink("creatorkit/", "Pricing");
-                RenderNavLink("uses", "Documents");
+                RenderNavLink("integrations", "Integrations");
+                RenderNavLink("changelog", "Changelog");
                 RenderNavLink("blog", "Blog");
+                RenderNavLink("support", "Support");
             }
         </ul>
     </nav>
     <div class="md:block hidden">
     <div class="col-span-1 justify-end flex items-center gap-L">
-        <div data-component="DarkModeToggle" class="toggle-button ml-2 w-10" onClick="toggle(event)" id="toggle-button" ></div>
+        <div data-component="DarkModeToggle" class="toggle-button ml-2 w-10" id="toggle-button" ></div>
         <button class="bg-brandPrimary px-L py-SM rounded-L h-[43px] w-[208px] flex gap-S items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
                 <path d="M8 2.5C7.21207 2.5 6.43185 2.65905 5.7039 2.96806C4.97595 3.27708 4.31451 3.73001 3.75736 4.30099C2.63214 5.45414 2 7.01816 2 8.64896C2 11.3668 3.722 13.6727 6.104 14.4905C6.404 14.5397 6.5 14.349 6.5 14.183V13.1439C4.838 13.5128 4.484 12.3199 4.484 12.3199C4.208 11.6066 3.818 11.416 3.818 11.416C3.272 11.0348 3.86 11.0471 3.86 11.0471C4.46 11.0901 4.778 11.6804 4.778 11.6804C5.3 12.615 6.182 12.3383 6.524 12.1908C6.578 11.7911 6.734 11.5205 6.902 11.3668C5.57 11.2131 4.172 10.6843 4.172 8.34151C4.172 7.65898 4.4 7.11172 4.79 6.67515C4.73 6.52142 4.52 5.88193 4.85 5.05182C4.85 5.05182 5.354 4.8858 6.5 5.67901C6.974 5.54374 7.49 5.4761 8 5.4761C8.51 5.4761 9.026 5.54374 9.5 5.67901C10.646 4.8858 11.15 5.05182 11.15 5.05182C11.48 5.88193 11.27 6.52142 11.21 6.67515C11.6 7.11172 11.828 7.65898 11.828 8.34151C11.828 10.6904 10.424 11.2069 9.086 11.3607C9.302 11.5513 9.5 11.9264 9.5 12.4982V14.183C9.5 14.349 9.596 14.5458 9.902 14.4905C12.284 13.6665 14 11.3668 14 8.64896C14 7.84147 13.8448 7.04188 13.5433 6.29586C13.2417 5.54983 12.7998 4.87197 12.2426 4.30099C11.6855 3.73001 11.0241 3.27708 10.2961 2.96806C9.56815 2.65905 8.78793 2.5 8 2.5Z" fill="#4F1B05" />

@@ -37,7 +37,7 @@
                             </svg>
                         </span>
                     </div>
-                    <div class="grid gap-L xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 invisible h-auto items-center opacity-0 transition-all max-h-0 opacity-100 duration-1000">
+                    <div class="grid gap-L xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 invisible h-auto items-center opacity-0 transition-all max-h-0 opacity-100">
 
                         <div class="border border-borderSecondary rounded-L p-L grid gap-L">
                             <div class="grid grid-cols-1 gap-L">
@@ -119,7 +119,7 @@
                             </svg>
                         </span>
                     </div>
-                    <div class="grid gap-L xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 invisible h-auto items-center opacity-0 transition-all max-h-0 opacity-100 duration-1000">
+                    <div class="grid gap-L xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 invisible h-auto items-center opacity-0 transition-all max-h-0 opacity-100">
 
                         <div class="border border-borderSecondary rounded-L p-L grid gap-L">
                             <div class="grid grid-cols-1 gap-L">
@@ -201,7 +201,7 @@
                             </svg>
                         </span>
                     </div>
-                    <div class="grid gap-L xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 invisible h-auto items-center opacity-0 transition-all max-h-0 opacity-100 duration-1000">
+                    <div class="grid gap-L xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 invisible h-auto items-center opacity-0 transition-all max-h-0 opacity-100">
 
                         <div class="border border-borderSecondary rounded-L p-L grid gap-L">
                             <div class="grid grid-cols-1 gap-L">
@@ -283,7 +283,7 @@
                             </svg>
                         </span>
                     </div>
-                    <div class="grid gap-L xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 invisible h-auto items-center opacity-0 transition-all max-h-0 opacity-100 duration-1000">
+                    <div class="grid gap-L xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 invisible h-auto items-center opacity-0 transition-all max-h-0 opacity-100">
 
                         <div class="border border-borderSecondary rounded-L p-L grid gap-L">
                             <div class="grid grid-cols-1 gap-L">
@@ -365,7 +365,7 @@
                             </svg>
                         </span>
                     </div>
-                    <div class="grid gap-L xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 invisible h-auto items-center opacity-0 transition-all max-h-0 opacity-100 duration-1000">
+                    <div class="grid gap-L xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 invisible h-auto items-center opacity-0 transition-all max-h-0 opacity-100">
 
                         <div class="border border-borderSecondary rounded-L p-L grid gap-L">
                             <div class="grid grid-cols-1 gap-L">
@@ -446,15 +446,29 @@
 <script>
 
     function showData(event) {
-        const classesToAdd = ['max-h-full', 'mt-S', 'md:mt-L']
-        const classesToRemove = ['invisible', 'max-h-0']
-        event.target.children[0].children[1].classList.add('-rotate-180')
-        classesToAdd.forEach(className => {
-            event.target.children[1].classList.add(className);
-        });
-
+    const content = event.target.children[1];
+    if (content.classList.contains('invisible') || content.classList.contains('max-h-0')) {
+        event.target.children[0].children[1].classList.add('-rotate-180');
+        const classesToAdd = ['max-h-full', 'mt-S', 'md:mt-L','duration-1000'];
+        const classesToRemove = ['invisible', 'max-h-0'];
+        if(content.classList.contains('duration-500')){ classesToRemove.push('duration-500')}
         classesToRemove.forEach(className => {
-            event.target.children[1].classList.remove(className);
+            content.classList.remove(className);
+        });
+        classesToAdd.forEach(className => {
+            content.classList.add(className);
+        });
+    } else {
+        event.target.children[0].children[1].classList.remove('-rotate-180');
+        const classesToAdd = ['invisible', 'max-h-0' , 'duration-500'];
+        const classesToRemove = ['max-h-full', 'mt-S', 'md:mt-L', 'duration-1000'];
+        classesToRemove.forEach(className => {
+            content.classList.remove(className);
+        });
+        classesToAdd.forEach(className => {
+            content.classList.add(className);
         });
     }
+    event.target.blur();
+}
 </script>
