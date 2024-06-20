@@ -12,7 +12,7 @@ module.exports = {
                 '3xl': '1920px'
             },
             colors: {
-                backgroundSecondary: '#121212',
+                backgroundSecondary: '#252532',
                 backgroundTertiary: '#0F0F0F',
                 brandPrimary: '#F37441',
                 textSecondary: '#CCCCCC',
@@ -24,8 +24,10 @@ module.exports = {
                 brandSecondary: '#822C08',
                 errorPrimary: '#F8D7D7',
                 onErrorPrimary: '#571616',
-                backgroundQuaternary: '#4A494D'
-
+                backgroundQuaternary: '#4A494D',
+                headingPrimary: '#F9F8F6',
+                spanPrimary: '#C1C5C0',
+                backgroundPrimary: '#252532',
             },
             boxShadow: {
 
@@ -35,7 +37,9 @@ module.exports = {
                 H5: ['18px', { lineHeight: '21.78px', fontWeight: '500' }],
                 H4: ['24px', { lineHeight: '29.05px', fontWeight: '600' }],
                 H3: ['32px', { lineHeight: '38.73px', fontWeight: '600' }],
+                H2: ['20px', { lineHeight: '21.78px', fontWeight: '700' }],
                 Regular: ['14px', { lineHeight: '16.94px', fontWeight: '400' }],
+                Small: ['12px', { lineHeight: '24px', fontWeight: '400' }],
 
             },
             fontFamily: {
@@ -90,6 +94,9 @@ module.exports = {
             },
             transitionDuration: {
                 '2000': '2000ms',
+            },
+            gap: {
+                XXl:'57px'
             }
         }
     },
