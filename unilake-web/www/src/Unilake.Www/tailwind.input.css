@@ -87,4 +87,34 @@ select{
     z-index: 60;
 }
 
+.activeSectionOfArticle {
+    padding: 12px 32px 12px 0px;
+}
+
+.activeSectionOfArticle span {
+   padding-left: 32px;
+   border-left: 1px solid white;
+   color: #CCCCCC
+}
+.toggle-button {
+    width: 100px;
+}
+
+.toggle-button button:is(.dark .dark\:bg-gray-700) {
+    background-color: #4A494D !important;
+}
+
+.toggle-button button {
+    width: 24px !important;
+}
+
+.toggle-button button span {
+    transform: translateX(0px) !important;
+}
+
+.toggle-button button span:is(.dark .dark\:bg-black) {
+    background-color: #4A494D !important;
+}
+
+
 @tailwind utilities;
